@@ -1,10 +1,10 @@
 # Instagram-Account-Creator
-Tool that registers Instagram accounts powered by the requests library
+Tool that registers Instagram accounts powered by the requests library.
 
 # How to use:
-- Make sure the requests library is installed
-- Modify the password line to a desired password
-- Modify the username line to a desired username that will be be incremeted by 1 everytime
+- Clone repository
+- Make sure requirments.txt are installed. (pip3 install -requriements).
+- Press ctrl-z to quit at anytime. 
 
 # Future features
-- Proxy support
+- Proxy support.
