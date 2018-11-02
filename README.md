@@ -1,5 +1,5 @@
 # Instagram-Account-Creator
-Tool that registers Instagram accounts powered by the requests library!
+Tool that registers Instagram accounts powered by the requests library
 
 # How to use:
 - Make sure the requests library is installed
