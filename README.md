@@ -7,4 +7,5 @@ Tool that registers Instagram accounts powered by the requests library.
 - Press ctrl-z to quit at anytime. 
 
 # Features
-- Proxy support, just create a proxies.txt file with your proxies in the same directory as the program.
+- Proxy support: 
+  - Just create a proxies.txt file with your proxies in the same directory as the program.
