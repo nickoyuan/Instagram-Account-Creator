@@ -8,4 +8,4 @@ Tool that registers Instagram accounts powered by the requests library.
 
 # Features
 - Proxy support: 
-  - Just create a proxies.txt file with your proxies in the same directory as the program.
+  - Create a proxies.txt file with your proxies in the same directory as the program.
