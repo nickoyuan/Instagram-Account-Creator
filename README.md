@@ -1,4 +1,4 @@
-# Instagram-Account-Creator
+# Instagram Account Creator
 Tool that registers Instagram accounts powered by the requests library.
 
 # How to use:
