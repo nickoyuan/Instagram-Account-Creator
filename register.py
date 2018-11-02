@@ -66,7 +66,7 @@ def creator_handler(sleep):
 
 def main():
     print("Instagram Account Creator")
-    print("To quit at any time, press ctrl-z at anytime.")
+    print("Press ctrl-z to quit at anytime.")
     user_speed = input("Please enter a delay in milliseconds: ")
 
     try:
