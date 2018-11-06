@@ -34,24 +34,29 @@ class Account_Creator():
             'tos_version' : 'row',
             'opt_into_one_tap' : 'false'
         }
-        self.session = requests.Session()
 
     # Register account method
     def register_account(self):
-        start_session = self.session.get(
-            self.register_url, 
-            proxies={'http' : self.proxy, 'https' : self.proxy}
-        )
-        self.session.headers.update({
-            'referer' : self.referer_url,
-            'x-csrftoken' : start_session.cookies['csrftoken']
-        })
-        send_request = self.session.post(self.register_url,
-        data=self.post_data, 
-        allow_redirects=True, 
-        proxies={'http': self.proxy, 'https': self.proxy}
-        )
-        self.session.headers.update({'x-csrftoken' : start_session.cookies['csrftoken']})
-        response_text = send_request.text
-        response_json = json.loads(response_text)
+        session = requests.Session()
+        try:
+            start_session = session.get(
+                self.register_url, 
+                proxies={'http' : self.proxy, 'https' : self.proxy}
+            )
+            session.headers.update({
+                'referer' : self.referer_url,
+                'x-csrftoken' : start_session.cookies['csrftoken']
+            })
+            send_request = session.post(self.register_url,
+            data=self.post_data, 
+            allow_redirects=True, 
+            proxies={'http': self.proxy, 'https': self.proxy}
+            )
+            session.headers.update({'x-csrftoken' : start_session.cookies['csrftoken']})
+            print(start_session.cookies['csrftoken'])
+            response_text = send_request.text
+            response_json = json.loads(response_text)
+        except requests.exceptions.ProxyError as e:
+            print(e)
+            print("Couldn't connect to proxy.")
         return(response_json)
