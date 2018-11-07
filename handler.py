@@ -28,14 +28,6 @@ class Handler():
         attempts = 0
         while True:
             i = 0
-            """
-            first_name = names.get_first_name()
-            last_name = names.get_last_name()
-            name = first_name + " " + last_name
-            username = first_name +  last_name + str(random.randint(100,999)) + first_name
-            password = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
-            email = username + "@gmail.com"
-            """
             for _ in range(len(proxy)):
                 first_name = names.get_first_name()
                 last_name = names.get_last_name()
