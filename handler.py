@@ -57,7 +57,6 @@ class Handler():
                         print("------------------------------")
                         print("IP address has been flagged.")
                         print("Please wait awhile, or use a different proxy.")
-                        print(username)
                         print("Proxy: " + str(proxy[i]))
                         print("Speed: " + str(delay) + " milliseconds.")
                         print("------------------------------")
