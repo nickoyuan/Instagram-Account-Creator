@@ -53,7 +53,6 @@ class Account_Creator():
             proxies={'http': self.proxy, 'https': self.proxy}
             )
             session.headers.update({'x-csrftoken' : start_session.cookies['csrftoken']})
-            print(start_session.cookies['csrftoken'])
             response_text = send_request.text
             response_json = json.loads(response_text)
         except requests.exceptions.ProxyError as e:
