@@ -37,46 +37,6 @@ class Handler():
                 email = username + "@gmail.com"
                 Create_Account = Account_Creator(email, name, username, password, proxy[i])
                 try:
-                     response = Create_Account.register_account()
-                     print(response)
-                            if(response['account_created'] == True):
-                                account_file.write("Email: " + email + '\n')
-                                account_file.write("Username: @" + username + '\n')
-                                account_file.write("Password: " + password + '\n')
-                                account_file.write(" " + '\n')
-                                account_file.flush()
-                                print("------------------------------")
-                                print("Name: " + name)
-                                print("Email:" + email)
-                                print("Username: @" + username)
-                                print("Password: " + password)
-                                print("Proxy: " + str(proxy[i]))
-                                print("Speed: " + str(delay) + " milliseconds.")
-                                print("------------------------------")
-                            elif(response['account_created'] == False or response['message']['status'] == 'fail'):
-                                print("------------------------------")
-                                print("IP address has been flagged.")
-                                print("Please wait awhile, or use a different proxy.")
-                                print("Proxy: " + str(proxy[i]))
-                                print("Speed: " + str(delay) + " milliseconds.")
-                                print("------------------------------")
-                            time.sleep(delay)
-                            i = i + 1
-                            attempts = attempts + 1
-                            print("Attempt: " + str(attempts))
-                        except UnboundLocalError as e:
-                            print("Failed to load JSON response.")
-                            print(e)
-                            break              
-        elif(proxy == None):
-             first_name = names.get_first_name()
-                last_name = names.get_last_name()
-                name = first_name + " " + last_name
-                username = first_name +  last_name + str(random.randint(100,9999)) + ''.join(random.choices(string.ascii_lowercase + string.digits, k=5))
-                password = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
-                email = username + "@gmail.com"
-                Create_Account = Account_Creator(email, name, username, password, proxy)
-                try:
                     response = Create_Account.register_account()
                     print(response)
                     if(response['account_created'] == True):
@@ -90,21 +50,60 @@ class Handler():
                         print("Email:" + email)
                         print("Username: @" + username)
                         print("Password: " + password)
+                        print("Proxy: " + str(proxy[i]))
                         print("Speed: " + str(delay) + " milliseconds.")
-                        print("------------------------------")
+                        print("------------------------------")       
                     elif(response['account_created'] == False or response['message']['status'] == 'fail'):
                         print("------------------------------")
                         print("IP address has been flagged.")
                         print("Please wait awhile, or use a different proxy.")
+                        print("Proxy: " + str(proxy[i]))
                         print("Speed: " + str(delay) + " milliseconds.")
-                        print("------------------------------")
-                    time.sleep(delay)
-                    attempts = attempts + 1
-                    print("Attempt: " + str(attempts))
+                        print("------------------------------")       
+                        time.sleep(delay)
+                        i = i + 1
+                        attempts = attempts + 1
+                        print("Attempt: " + str(attempts))
                 except UnboundLocalError as e:
                     print("Failed to load JSON response.")
                     print(e)
-                    break   
+                    break                     
+        elif(proxy == None):
+            first_name = names.get_first_name()
+            last_name = names.get_last_name()
+            name = first_name + " " + last_name
+            username = first_name +  last_name + str(random.randint(100,9999)) + ''.join(random.choices(string.ascii_lowercase + string.digits, k=5))
+            password = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
+            email = username + "@gmail.com"
+            Create_Account = Account_Creator(email, name, username, password, proxy)
+            try:
+                response = Create_Account.register_account()
+                print(response)
+                if(response['account_created'] == True):
+                    account_file.write("Email: " + email + '\n')
+                    account_file.write("Username: @" + username + '\n')
+                    account_file.write("Password: " + password + '\n')
+                    account_file.write(" " + '\n')
+                    account_file.flush()
+                    print("------------------------------")
+                    print("Name: " + name)
+                    print("Email:" + email)
+                    print("Username: @" + username)
+                    print("Password: " + password)
+                    print("Speed: " + str(delay) + " milliseconds.")
+                    print("------------------------------")
+                elif(response['account_created'] == False or response['message']['status'] == 'fail'):
+                    print("------------------------------")
+                    print("IP address has been flagged.")
+                    print("Please wait awhile, or use a different proxy.")
+                    print("Speed: " + str(delay) + " milliseconds.")
+                    print("------------------------------")
+                time.sleep(delay)
+                attempts = attempts + 1
+                print("Attempt: " + str(attempts))
+            except UnboundLocalError as e:
+                print("Failed to load JSON response.")
+                print(e)   
         account_file.close()     
     # Handler method
     def start_handler(self, proxy, delay):
