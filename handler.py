@@ -38,7 +38,7 @@ class Handler():
                 Create_Account = Account_Creator(email, name, username, password, proxy[i])
                 try:
                      response = Create_Account.register_account()
-                            print(response)
+                     print(response)
                             if(response['account_created'] == True):
                                 account_file.write("Email: " + email + '\n')
                                 account_file.write("Username: @" + username + '\n')
@@ -67,7 +67,7 @@ class Handler():
                         except UnboundLocalError as e:
                             print("Failed to load JSON response.")
                             print(e)
-                            break           
+                            break              
         elif(proxy == None):
              first_name = names.get_first_name()
                 last_name = names.get_last_name()
