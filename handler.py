@@ -26,8 +26,7 @@ class Handler():
     def writer(self, delay, proxy):
         account_file = open('accounts.txt', 'a')
         attempts = 0
-        while True:
-            if(proxy != None):
+        if(proxy != None):
                 i = 0
                 for _ in range(len(proxy)):
                     first_name = names.get_first_name()
@@ -106,9 +105,7 @@ class Handler():
                     print("Failed to load JSON response.")
                     print(e)
                     break
-        account_file.close()
-            
-                
+        account_file.close()     
     # Handler method
     def start_handler(self, proxy, delay):
         try:
