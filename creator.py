@@ -41,7 +41,7 @@ class Account_Creator():
         try:
             start_session = session.get(
                 self.register_url, 
-                proxies={'http' : self.proxy, 'https' : self.proxy}
+                proxies={'http' : 'http://tecmint:123proxyinst@35.235.67.28:3128', 'https' : 'https://tecmint:123proxyinst@35.235.67.28:3128'}
             )
             session.headers.update({
                 'referer' : self.referer_url,
@@ -50,7 +50,7 @@ class Account_Creator():
             send_request = session.post(self.register_url,
             data=self.post_data, 
             allow_redirects=True, 
-            proxies={'http': self.proxy, 'https': self.proxy}
+            proxies={'http' : 'http://tecmint:123proxyinst@35.235.67.28:3128', 'https' : 'https://tecmint:123proxyinst@35.235.67.28:3128'}
             )
             session.headers.update({'x-csrftoken' : start_session.cookies['csrftoken']})
             response_text = send_request.text
