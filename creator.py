@@ -49,8 +49,7 @@ class Account_Creator():
             })
             send_request = session.post(self.register_url,
             data=self.post_data, 
-            allow_redirects=True, 
-            proxies={'http' : 'http://tecmint:123proxyinst@35.235.67.28:3128', 'https' : 'https://tecmint:123proxyinst@35.235.67.28:3128'}
+            allow_redirects=True
             )
             session.headers.update({'x-csrftoken' : start_session.cookies['csrftoken']})
             response_text = send_request.text
